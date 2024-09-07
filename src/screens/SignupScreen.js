@@ -61,7 +61,7 @@ const LoginScreen = () => {
             />
           </View>
           <View style={styles.input}>
-            <Text style={{color: 'black'}}>Password</Text>
+            <Text style={{color: 'black', paddingTop: 10}}>Password</Text>
             <TextInput
               style={{color: 'grey', paddingLeft: 1}}
               placeholder="password"
@@ -72,7 +72,9 @@ const LoginScreen = () => {
             />
           </View>
           <View style={styles.input}>
-            <Text style={{color: 'black'}}>Confirm Password</Text>
+            <Text style={{color: 'black', paddingTop: 10}}>
+              Confirm Password
+            </Text>
             <TextInput
               style={{color: 'grey', paddingLeft: 1}}
               placeholder="confirmPassword"

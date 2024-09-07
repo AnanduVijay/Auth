@@ -41,7 +41,7 @@ const LoginScreen = () => {
           <View style={styles.input}>
             <Text style={{color: 'black', paddingTop: 10}}>Email</Text>
             <TextInput
-              style={{color: 'grey', height: 34, paddingLeft: 1}}
+              style={{color: 'grey', paddingLeft: 1}}
               placeholder="username"
               placeholderTextColor={'grey'}
               value={username}
@@ -51,7 +51,7 @@ const LoginScreen = () => {
           <View style={styles.input}>
             <Text style={{color: 'black', paddingTop: 10}}>Password</Text>
             <TextInput
-              style={{color: 'grey', height: 34, paddingLeft: 1}}
+              style={{color: 'grey', paddingLeft: 1}}
               placeholder="password"
               placeholderTextColor={'grey'}
               value={password}
@@ -67,7 +67,10 @@ const LoginScreen = () => {
           </Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={() => navigation.navigate('Signin')}>
-          <Text style={{color: 'black'}}>Don't have an account? sign up</Text>
+          <Text style={{color: 'black'}}>
+            Don't have an account?{' '}
+            <Text style={{fontWeight: 'bold'}}>sign up</Text>
+          </Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>

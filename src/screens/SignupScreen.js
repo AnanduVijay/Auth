@@ -83,14 +83,15 @@ const LoginScreen = () => {
             />
           </View>
         </View>
-
         <TouchableOpacity style={styles.button}>
           <Text style={{color: 'white', fontWeight: 'bold', fontSize: 18}}>
             Sign Up
           </Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={() => navigation.navigate('Login')}>
-          <Text style={{color: 'black'}}>You have a account? Login</Text>
+          <Text style={{color: 'black'}}>
+            You have a account? <Text style={{fontWeight: 'bold'}}>Login</Text>
+          </Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>
@@ -103,33 +104,29 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'black',
+    alignItems: 'center',
+    justifyContent: 'space-between',
   },
   headerContainer: {
-    flex: 1,
-    borderWidth: 1,
-    borderColor: 'red',
     flexDirection: 'row',
     alignItems: 'center',
-    marginLeft: 30,
     gap: 80,
+    marginTop: 50,
     width: '85%',
   },
 
   formContainer: {
-    flex: 3,
-    borderWidth: 2,
-    borderColor: 'red',
     width: '100%',
+    padding: 20,
     borderTopLeftRadius: 90,
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#F5F5F5',
   },
   inputContainer: {
+    marginTop: 50,
     width: '85%',
     gap: 20,
-    borderWidth: 1,
-    borderColor: 'red',
   },
   input: {
     backgroundColor: '#fff',
@@ -139,7 +136,7 @@ const styles = StyleSheet.create({
   },
   button: {
     backgroundColor: 'black',
-    marginTop: 50,
+    marginTop: 100,
     marginBottom: 20,
     width: '85%',
     height: 65,

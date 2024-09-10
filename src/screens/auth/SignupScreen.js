@@ -23,7 +23,7 @@ const LoginScreen = () => {
         <TouchableOpacity onPress={() => navigation.navigate('Login')}>
           <Image
             style={{width: 50, height: 50}}
-            source={require('../assets/images/arrowback.png')}
+            source={require('../../assets/images/arrowback.png')}
           />
         </TouchableOpacity>
 

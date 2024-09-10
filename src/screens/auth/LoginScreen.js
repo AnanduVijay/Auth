@@ -20,7 +20,7 @@ const LoginScreen = () => {
     console.log('password', password);
 
     // Alert.alert(`username: ${username}, password: ${password}`);
-    navigation.navigate('Home');
+    navigation.navigate('Main');
   };
   return (
     <SafeAreaView style={styles.container}>

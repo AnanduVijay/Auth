@@ -1,26 +1,30 @@
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
-import {Image} from 'react-native-svg';
 
-const ProductCard = () => {
+const ProductCard = ({title, ingredients, image}) => {
   return (
-    <TouchableOpacity>
+    <TouchableOpacity style={styles.container}>
       <View style={styles.imagecontainer}>
         <Image
-          style={{width: 80, height: 80, borderRadius: 10}}
-          source={require('../../../assets/images/coffee.jpg')}
+          style={{
+            width: 150,
+            height: 140,
+            borderRadius: 10,
+            borderColor: 'white',
+          }}
+          source={{uri: image}}
         />
       </View>
-      <View>
-        {/* <Text>{title}</Text>
-        <Text>{ingredients}</Text> */}
-        <Text>Title demo</Text>
-        <Text>ingredients, demos</Text>
+      <View style={styles.detailsContainer}>
+        <Text style={{fontWeight: 'bold', color: 'black', fontSize: 18}}>
+          {title}
+        </Text>
+        <Text style={{color: 'grey', fontSize: 12}}>with {ingredients}</Text>
       </View>
       <View style={styles.priceContainer}>
-        <Text>$450</Text>
+        <Text style={{color: 'black', fontWeight: 'bold'}}>$ 450</Text>
         <TouchableOpacity style={styles.addButton}>
-          <Text>+</Text>
+          <Text style={{margin: 10, fontSize: 15, fontWeight: 'bold'}}>+</Text>
         </TouchableOpacity>
       </View>
     </TouchableOpacity>
@@ -30,14 +34,28 @@ const ProductCard = () => {
 export default ProductCard;
 
 const styles = StyleSheet.create({
-  container: {},
+  container: {
+    backgroundColor: 'white',
+    marginLeft: 15,
+    width: 160,
+    borderRadius: 10,
+  },
   imagecontainer: {
     alignItems: 'center',
   },
+
   addButton: {
+    borderRadius: 10,
     backgroundColor: '#C67C4E',
   },
   priceContainer: {
     flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginTop: 5,
+    padding: 5,
+  },
+  detailsContainer: {
+    marginTop: 5,
   },
 });

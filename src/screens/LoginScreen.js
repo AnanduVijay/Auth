@@ -12,14 +12,15 @@ import {useNavigation} from '@react-navigation/native';
 
 const LoginScreen = () => {
   const navigation = useNavigation();
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState('anandu');
+  const [password, setPassword] = useState('anandu@123');
 
   const handleLogin = () => {
     console.log('username', username);
     console.log('password', password);
 
-    Alert.alert(`username: ${username}, password: ${password}`);
+    // Alert.alert(`username: ${username}, password: ${password}`);
+    navigation.navigate('Home');
   };
   return (
     <SafeAreaView style={styles.container}>

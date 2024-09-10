@@ -1,0 +1,15 @@
+[{"title":"Black Coffee",
+"description":"Black coffee is as simple as it gets with ground coffee beans soaked in hot water, served hot. And if you want to sound fancy, you can properly call it black coffee name: café noir.",
+"ingredients":["Coffee"],
+"image":"https://images.unsplash.com/photo-1494314671902-399b18174975?auto=format&fit=crop&q=80&w=1887&ixlib=rb- 4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+"id":1},
+
+
+{"title":"Latte",
+"description":"As the most popular coffee drink out there, latte consists of a shot of espresso and steamed milk with just a dash of foam. It can be ordered unflavored or flavored with anything from vanilla to pumpkin spice.",
+"ingredients":["Espresso","Steamed milk"],
+"image":"https://images.unsplash. com/photo-1561882468-9110e03e0f78?auto=format&fit=crop&q=60&w=800&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGxhdHRlfGVufDB8fDB8fHww","id":2},
+
+{"title":"Caramel Latte",
+"description":"About you like latte with a special taste, caramel latte can be the best option to give you an experience of the natural sweetness and creaminess of steamed milk and caramel.",
+"ingredients":["Espresso","Steamed milk","Caramel syrup "],"image":"https://images.unsplash.com/photo-1599398054066-846f28917f38?auto=format&fit=crop&q=80&w=1887&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D","id" :3}

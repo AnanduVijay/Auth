@@ -11,9 +11,9 @@ import ContactCard from './components/ContactCard';
 
 const ContactScreen = () => {
   const data = [
-    {id: 1, name: 'Ziya', contact: 123456789},
-    {id: 2, name: 'Stephin', contact: 123456789},
-    {id: 3, name: 'Shameem', contact: 123456789},
+    {id: 1, name: 'Ziya', contact: 9845235845},
+    {id: 2, name: 'Stephin', contact: 8952455258},
+    {id: 3, name: 'Shameem', contact: 8289423661},
     {id: 4, name: 'Anoop', contact: 123456789},
   ];
 

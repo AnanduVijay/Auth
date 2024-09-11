@@ -2,7 +2,9 @@ import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import HomeScreen from '../screens/home/HomeScreen';
+import CounterScreen from '../screens/couter/CounterScreen';
 import ContactScreen from '../screens/contact/ContactScreen';
+import ColorPicker from '../screens/coloePicker/ColorPicker';
 import {
   HomeIcon,
   HeartIcon,
@@ -34,8 +36,8 @@ const BottomTab = () => {
       })}>
       <Tab.Screen name="Home" component={HomeScreen} />
       <Tab.Screen name="Favorite" component={ContactScreen} />
-      <Tab.Screen name="Cart" component={HomeScreen} />
-      <Tab.Screen name="Notification" component={HomeScreen} />
+      <Tab.Screen name="Cart" component={CounterScreen} />
+      <Tab.Screen name="Notification" component={ColorPicker} />
     </Tab.Navigator>
   );
 };

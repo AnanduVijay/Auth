@@ -6,22 +6,30 @@ import {
   SafeAreaView,
   TextInput,
   Alert,
+  ActivityIndicator,
 } from 'react-native';
 import React, {useState} from 'react';
 import {useNavigation} from '@react-navigation/native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const LoginScreen = () => {
   const navigation = useNavigation();
   const [username, setUsername] = useState('anandu');
   const [password, setPassword] = useState('anandu@123');
+  const [isLoading, setIsloading] = useState(false);
 
-  const handleLogin = () => {
-    console.log('username', username);
-    console.log('password', password);
-
-    // Alert.alert(`username: ${username}, password: ${password}`);
-    navigation.navigate('Main');
+  const handleLogin = async (username, password) => {
+    setIsloading(true);
+    try {
+      await AsyncStorage.setItem('@username', username);
+      await AsyncStorage.setItem('@password', password);
+      console.log('Credentials stored successfully');
+      navigation.replace('Main');
+    } catch (e) {
+      console.error('Failed to save the credentials', e);
+    }
   };
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.headerContainer}>
@@ -62,10 +70,16 @@ const LoginScreen = () => {
           </View>
         </View>
 
-        <TouchableOpacity style={styles.button} onPress={handleLogin}>
-          <Text style={{color: 'white', fontWeight: 'bold', fontSize: 18}}>
-            Login
-          </Text>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => handleLogin(username, password)}>
+          {isLoading ? (
+            <ActivityIndicator color={'#fff'} size={'small'} />
+          ) : (
+            <Text style={{color: 'white', fontWeight: 'bold', fontSize: 18}}>
+              Login
+            </Text>
+          )}
         </TouchableOpacity>
         <TouchableOpacity onPress={() => navigation.navigate('Signin')}>
           <Text style={{color: 'black'}}>

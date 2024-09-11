@@ -6,6 +6,7 @@ import {
   Text,
   ScrollView,
   View,
+  KeyboardAvoidingView,
 } from 'react-native';
 import Header from './components/Header';
 import SearchBar from './components/SearchBar';
@@ -52,16 +53,19 @@ const HomeScreen = () => {
           colors={['#2C2C2C', '#202020', '#161616']}
           style={styles.linearGradient}>
           <Header />
-          <SearchBar />
+          <KeyboardAvoidingView>
+            <SearchBar />
+          </KeyboardAvoidingView>
         </LinearGradient>
       </View>
-      {/* <View style={{alignItems: 'center', backgroundColor: '#F9F9F9'}}>
+
+      <View style={{alignItems: 'center', backgroundColor: '#F9F9F9'}}>
         <Image
           style={{marginTop: -50, width: 330, height: 150}}
           source={require('../../assets/images/Frame.png')}
           resizeMode="contain"
         />
-      </View> */}
+      </View>
       <View style={styles.bodyContainer}>
         <View style={styles.categoryContainer}>
           <FlatList

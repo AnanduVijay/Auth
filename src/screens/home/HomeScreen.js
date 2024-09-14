@@ -6,7 +6,6 @@ import {
   Text,
   ScrollView,
   View,
-  KeyboardAvoidingView,
 } from 'react-native';
 import Header from './components/Header';
 import SearchBar from './components/SearchBar';
@@ -20,7 +19,6 @@ import React, {useEffect, useState} from 'react';
 const HomeScreen = () => {
   const [products, setProducts] = useState([]);
   const [selectedId, setSelectedId] = useState(null);
-  // console.log('S%%%%%% SELECTED ID&&*&*&**', selectedId);
 
   useEffect(() => {
     getProducts();
@@ -45,7 +43,7 @@ const HomeScreen = () => {
   ];
 
   return (
-    <SafeAreaView style={styles.container}>
+    <ScrollView style={styles.container}>
       <View style={styles.headerContainer}>
         <LinearGradient
           start={{x: 0, y: 0}}
@@ -53,15 +51,13 @@ const HomeScreen = () => {
           colors={['#2C2C2C', '#202020', '#161616']}
           style={styles.linearGradient}>
           <Header />
-          <KeyboardAvoidingView>
-            <SearchBar />
-          </KeyboardAvoidingView>
+          <SearchBar />
         </LinearGradient>
       </View>
 
       <View style={{alignItems: 'center', backgroundColor: '#F9F9F9'}}>
         <Image
-          style={{marginTop: -50, width: 330, height: 150}}
+          style={{marginTop: -60, width: 330, height: 150}}
           source={require('../../assets/images/Frame.png')}
           resizeMode="contain"
         />
@@ -97,9 +93,8 @@ const HomeScreen = () => {
             contentContainerStyle={styles.listContainer}
           />
         </View>
-        <View style={{width: '100', height: 100}}></View>
       </View>
-    </SafeAreaView>
+    </ScrollView>
   );
 };
 
@@ -111,8 +106,6 @@ const styles = StyleSheet.create({
   },
   headerContainer: {
     flex: 1,
-    // backgroundColor: '#161616',
-    // padding: 15,
   },
   linearGradient: {
     padding: 15,

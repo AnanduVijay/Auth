@@ -4,7 +4,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import HomeScreen from '../screens/home/HomeScreen';
 import CounterScreen from '../screens/couter/CounterScreen';
 import ContactScreen from '../screens/contact/ContactScreen';
-import ColorPicker from '../screens/coloePicker/ColorPicker';
+import ColorPicker from '../screens/colourPicker/ColorPicker';
 import {
   HomeIcon,
   HeartIcon,

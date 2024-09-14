@@ -14,6 +14,17 @@ const ProductCard = ({title, ingredients, image}) => {
           }}
           source={{uri: image}}
         />
+        <Text
+          style={{
+            color: 'white',
+            fontWeight: 'bold',
+            position: 'absolute',
+            alignSelf: 'flex-start',
+            margin: 5,
+            marginLeft: 10,
+          }}>
+          ⭐4.5
+        </Text>
       </View>
       <View style={styles.detailsContainer}>
         <Text style={{fontWeight: 'bold', color: 'black', fontSize: 18}}>

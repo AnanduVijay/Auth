@@ -40,6 +40,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 5,
     margin: 15,
+    marginBottom: 70,
     borderRadius: 14,
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -53,5 +54,3 @@ const styles = StyleSheet.create({
     borderRadius: 14,
   },
 });
-
-// #313131

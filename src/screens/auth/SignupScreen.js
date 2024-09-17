@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import React, {useState} from 'react';
 import {useNavigation} from '@react-navigation/native';
+import auth from '@react-native-firebase/auth';
 
 const LoginScreen = () => {
   const navigation = useNavigation();
@@ -16,6 +17,15 @@ const LoginScreen = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+
+  const handleSignup = async () => {
+    try {
+      await auth().createUserWithEmailAndPassword(email, password);
+      navigation.navigate('Login');
+    } catch (e) {
+      console.error('Sighup error', e);
+    }
+  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -85,7 +95,7 @@ const LoginScreen = () => {
             />
           </View>
         </View>
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity style={styles.button} onPress={handleSignup}>
           <Text style={{color: 'white', fontWeight: 'bold', fontSize: 18}}>
             Sign Up
           </Text>

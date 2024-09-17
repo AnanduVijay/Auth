@@ -7,16 +7,16 @@ import {
   View,
 } from 'react-native';
 import React from 'react';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useNavigation} from '@react-navigation/native';
+import auth from '@react-native-firebase/auth';
 
 const Header = () => {
   const navigation = useNavigation();
   const logOut = async () => {
     try {
-      await AsyncStorage.removeItem('@username');
-      await AsyncStorage.removeItem('@password');
-      console.log('removed credentials from storage');
+      await auth()
+        .signOut()
+        .then(() => console.log('User signed out!'));
       navigation.navigate('Login');
     } catch (e) {
       console.error('failed to remove credentials from storage', e);

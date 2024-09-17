@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "234221271164",
+    "project_id": "ecom-store-efba4",
+    "storage_bucket": "ecom-store-efba4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:234221271164:android:8e87842adf91c1380a71f9",
+        "android_client_info": {
+          "package_name": "com.auth"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDplgMBG91Zy4tm492OJnz4JqZ772EEoLg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,36 +1,59 @@
 import {StyleSheet, ActivityIndicator, View} from 'react-native';
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import auth from '@react-native-firebase/auth';
 
 const LoadingScreen = ({navigation}) => {
-  useEffect(() => {
-    checkStarerShown();
-  }, []);
+  const [initializing, setInitializing] = useState(true);
+  const [user, setUser] = useState(null);
 
   const checkStarerShown = async () => {
-    const value = await AsyncStorage.getItem('@getStartedDisplayed');
-    if (value === 'true') {
-      checkLoginStatus();
-    } else {
-      navigation.replace('Starting');
-    }
-  };
-  checkStarerShown();
-  const checkLoginStatus = async () => {
-    const username = await AsyncStorage.getItem('@username');
-    const password = await AsyncStorage.getItem('@password');
-    if (username && password) {
-      navigation.replace('Main');
-    } else {
-      navigation.replace('Login');
+    try {
+      const value = await AsyncStorage.getItem('@getStartedDisplayed');
+      return value !== null && value === 'true';
+    } catch (error) {
+      console.error('Error reading starter status:', error);
+      return false;
     }
   };
 
-  return (
-    <View style={styles.loadingContainer}>
-      <ActivityIndicator size={'large'} color={'#C67C4E'} />
-    </View>
-  );
+  const checkOnboardingAndRedirect = async () => {
+    if (!initializing) {
+      if (!user) {
+        navigation.replace('Login');
+      } else {
+        const hasSeenStarter = await checkStarerShown();
+        if (!hasSeenStarter) {
+          navigation.replace('Starting');
+        } else {
+          navigation.replace('Main');
+        }
+      }
+    }
+  };
+  function onAuthStateChanged(user) {
+    setUser(user);
+    if (initializing) setInitializing(false);
+  }
+  useEffect(() => {
+    const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
+    return subscriber;
+  }, []);
+
+  useEffect(() => {
+    if (!initializing) {
+      checkOnboardingAndRedirect();
+    }
+  }, [initializing, user]);
+
+  if (initializing) {
+    return (
+      <View style={styles.loadingContainer}>
+        <ActivityIndicator size={'large'} color={'#C67C4E'} />
+      </View>
+    );
+  }
+  return null;
 };
 
 export default LoadingScreen;

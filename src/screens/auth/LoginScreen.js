@@ -10,23 +10,29 @@ import {
 } from 'react-native';
 import React, {useState} from 'react';
 import {useNavigation} from '@react-navigation/native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+// import AsyncStorage from '@react-native-async-storage/async-storage';
+import auth from '@react-native-firebase/auth';
 
 const LoginScreen = () => {
   const navigation = useNavigation();
-  const [username, setUsername] = useState('anandu');
-  const [password, setPassword] = useState('anandu@123');
+  const [username, setUsername] = useState();
+  const [password, setPassword] = useState();
   const [isLoading, setIsloading] = useState(false);
+  const [user, SetUser] = useState();
 
   const handleLogin = async (username, password) => {
     setIsloading(true);
     try {
-      await AsyncStorage.setItem('@username', username);
-      await AsyncStorage.setItem('@password', password);
-      console.log('Credentials stored successfully');
-      navigation.replace('Main');
+      const userCredential = await auth().signInWithEmailAndPassword(
+        username,
+        password,
+      );
+      SetUser(userCredential.user);
+      console.log('credential details', userCredential.user);
+      navigation.replace('Main', {user: user});
     } catch (e) {
-      console.error('Failed to save the credentials', e);
+      setIsloading(false);
+      console.error('Login error', e);
     }
   };
 
